@@ -142,6 +142,11 @@ export class EditorManager extends NavigatableWidgetOpenHandler<EditorWidget> {
     }
 
     protected readonly recentlyVisibleEditors: EditorWidget[] = [];
+
+    /** @deprecated since 1.72.0. Use {@link recentlyVisibleEditors} instead. */
+    protected get recentlyVisibleIds(): string[] {
+        return this.recentlyVisibleEditors.map(w => w.id);
+    }
     protected get recentlyVisible(): EditorWidget | undefined {
         return this.recentlyVisibleEditors[0];
     }
